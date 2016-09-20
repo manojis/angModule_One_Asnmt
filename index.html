@@ -3,24 +3,27 @@
   <head>
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="modules/angular.min.js"></script>
+    <script src="modules/app.js"></script>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
     </style>
   </head>
- <body>
-    <div class="container">
+ <body ng-app="Lunch-Checker" class="container">
+    <div ng-controller="lunchcheckerController">
       <h1>Lunch Checker</h1>
           <div class="form-group">
-              <input id="lunch-menu" type="text"
-              placeholder="list comma separated dishes you usually have for lunch"
-              class="form-control">
+              <input type="text" class="form-control"
+              ng-model="lunchMenu" ng-blur="formControl()" >
           </div>
-          <div class="form-group">
-              <button class="btn btn-default">Check If Too Much</button>
+          <div class ="form-group" >
+              <button  class="btn btn-default"
+              ng-click="btnClick()">Check If Too Much</button>
+              Count: {{ count }}
           </div>
-          <div class="form-group message">
-            <!-- Your message can go here. -->
+          <div class="form-group message" >
+            Message: {{ message() }}
           </div>
     </div>
  </body>
