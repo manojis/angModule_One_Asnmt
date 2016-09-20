@@ -7,7 +7,7 @@ angular.module('Lunch-Checker',[])
 lunchcheckerController.$inject = ['$scope'];
 function lunchcheckerController($scope){
 
-    $scope.lunchMenu="list comma separated dishes you usually have for lunch";
+    $scope.lunchMenu="";
     $scope.mess = "";
     $scope.count = 0;
 
@@ -23,7 +23,10 @@ function lunchcheckerController($scope){
         return $scope.count;
     };
       $scope.message = function(){
-        if($scope.count>3){
+        if($scope.count ==0){
+          $scope.mess = "Please enter data first"
+        }
+        else if($scope.count>3){
           $scope.mess = "Too much!"
         }else{
           $scope.mess = "Enjoy!"
